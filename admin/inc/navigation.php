@@ -146,7 +146,7 @@
                         <a href="#"><i class="glyphicon glyphicon-share"></i> Danh sách sản phẩm</a>
                     </li>
                     <li>
-                        <a href="#"><i class="glyphicon glyphicon-share"></i> Thêm sản phẩm mới</a>
+                        <a href="index.php?page=addproduct"><i class="glyphicon glyphicon-share"></i> Thêm sản phẩm mới</a>
                     </li>
                     <li>
                         <a href="#"><i class="glyphicon glyphicon-share"></i> Thông kê sản phẩm</a>
