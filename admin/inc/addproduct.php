@@ -17,7 +17,7 @@
         </div>
         <hr />
         <!-- /.row -->
-        <form method="post" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data" id="formaddproduct">
           <fieldset class="form-group">
             <label for="pdname">Tên sản phẩm </label>  <label class="label label-warning"> * Important</label>
             <input type="text" class="form-control" id="pdname" placeholder="Nhập tên sản phẩm" name="pdname">
@@ -62,55 +62,13 @@
             </label>
           </fieldset>
           <center>
-          <button type="submit" class="btn btn-primary">Thêm</button>
+          <button type="submit" class="btn btn-primary" id="submit-btn">Thêm</button>
           <button type="reset" class="btn btn-danger">Xóa</button>
         </center>
         </form>
         <hr>
         <div class="error" id="error">
-          <?php
-            if(isset($_POST['submit'])){
-              $pdname = $_POST['pdname'];
-              $pddes = $_POST['pddes'];
-              $pdprice = $_POST['pdprice'];
-              $pdcat = $_POST['pdcat'];
-              $pdimg = $_FILES['pdimg']['name'];
-              $noneurl = "";
-              if ($_POST['pdspec'] == 1) {
-                $pdspec = 1;
-              }else $pdspec = 0;
 
-              if ($pdcat == '0'){
-                echo "Chưa chọn danh mục";
-              }
-              elseif ($pdcat == "1") {
-                $noneurl = "dung-cu";
-              }
-              elseif ($pdcat == "2") {
-                $noneurl = "khan-uot-tay-trang-mat-na";
-              }
-              elseif ($pdcat == "3") {
-                $noneurl = "dien-thoai-va-phu-kien";
-              }
-              elseif ($pdcat == "4") {
-                $noneurl = "thoi-trang";
-              }
-              elseif ($pdcat == "5") {
-                $noneurl = "	thiet-bi-dien-va-phu-kien";
-              }
-              elseif ($pdcat == "15") {
-                $noneurl = "phong-thuy";
-              }
-              else {
-                echo "Chưa chọn danh mục";
-              }
-
-              if($pdname="" ||$pddes="" ||$pdprice="" ||$pdcat="" ||$pdimg=null){
-                echo "Các thông tin rỗng";
-              }
-
-            }
-          ?>
         </div>
         <hr>
         <!-- /.row -->
