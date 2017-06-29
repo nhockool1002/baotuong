@@ -1,0 +1,16 @@
+{}*
+
+body{
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
+}
+
+p.cat-title {
+    font-weight: 500;
+    font-size: 19px;
+}
+
+p.newcatname {
+    font-weight: 500;
+    font-size: 13px;
+    color: #054fda;
+}

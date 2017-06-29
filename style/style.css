@@ -1,0 +1,232 @@
+*{}
+
+i.fa.fa-arrow-circle-o-up {
+    color: green;
+}
+
+body {
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+}
+
+h5.card-title.name-pd {
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    color: #af4545;
+}
+
+span.price-pd-details {
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    margin-left: 5px;
+    font-size: 17px;
+    color: #0275d8;
+    font-weight: 400;
+}
+
+span.price {
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    font-weight: 700;
+    margin-left: -13px;
+}
+
+.buy-now a {
+    text-decoration: none;
+    color: red;
+    font-weight: 500;
+}
+
+span.buy-now {
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+}
+
+img.cart-icon {
+    vertical-align: top;
+    margin-top: -19px;
+    margin-right: -18px;
+    margin-left: 5px;
+}
+
+p.company {
+    font-weight: 500;
+}
+
+p.company-adds {}
+
+p.company-name {
+    font-weight: 700;
+    font-size: 25px;
+    margin-top: 22px;
+}
+
+.contact p {
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    line-height: 5px;
+}
+
+.contact p {}
+
+.logged .alert.alert-info {
+    margin-top: 10px;
+    margin-bottom: -14px;
+}
+
+.notlogged .alert.alert-danger {
+    margin-top: 10px;
+    margin-bottom: -14px;
+}
+
+.reg-title p {
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    font-weight: 700;
+}
+
+.reg-subject span {
+    font-size: 25px;
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+}
+
+.footer p {
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    line-height: 6px;
+    margin-top: 10px;
+    font-weight: 400;
+}
+
+.content span {
+    color: white;
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    font-weight: 500;
+}
+
+.menu-left a.nav-link {
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    color: black;
+    font-weight: 400;
+}
+
+.menu-left li.nav-item {
+    background-color: #e8e8e8;
+    border-radius: 5px;
+}
+
+.menu-left a.nav-link.active {*{}    .menu-primary
+    a.dropdown-item {      font-family: 'Fira Sans Extra Condensed', sans-serif;
+    font-weight: 400;  }    .menu-primary
+    a.nav-link {      font-family: 'Fira Sans Extra Condensed', sans-serif;
+    margin-left: 60px;  }
+    a.nav-link.dropdown-toggle.item-menu-primary {      color: white;  }    .bannertop {
+    margin-top: 10px;
+    margin-bottom: 10px;  }
+    nav.navbar.navbar-inverse.bg-inverse {      border-radius: 0px;  }
+    a.navbar-brand:hover {      color: white;  }
+    a.navbar-brand {      font-size: 25px;
+    font-weight: bold;
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    color: red;
+    margin-top: 2px;  }
+    a.nav-link:hover {      color: #afafaf;  }    .menutop
+    a.nav-link {      color: white;
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    font-weight: 700;
+    margin-left: 40px;
+    margin-top: 5px;  }
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    text-align: center;
+}
+
+.menu-primary a.dropdown-item {
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    font-weight: 400;
+}
+
+.menu-primary a.nav-link {
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    margin-left: 60px;
+}
+
+a.nav-link.dropdown-toggle.item-menu-primary {
+    color: white;
+}
+
+.bannertop {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+nav.navbar.navbar-inverse.bg-inverse {
+    border-radius: 0px;
+}
+
+a.navbar-brand:hover {
+    color: white;
+}
+
+a.navbar-brand {
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    color: red;
+    margin-top: 2px;
+}
+
+a.nav-link:hover {
+    color: #afafaf;
+}
+
+.menutop a.nav-link {
+    color: white;
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    font-weight: 700;
+    margin-left: 40px;
+    margin-top: 5px;
+}
+
+/*TEST*/
+.fa-twitter {
+    color: #4099FF;
+}
+
+.fa-facebook {
+    color: #3B5998;
+}
+
+.fa-youtube-play {
+    color: #e52d27;
+}
+
+.fa-rss {
+    color: #FF6600;
+}
+
+.fa-vine {
+    color: #00a478;
+}
+
+.fa-flickr {
+    color: #ff0084;
+}
+
+.fa-twitch {
+    color: #6441A5;
+}
+
+.fa-linkedin {
+    color: #007bb6;
+}
+
+.fa {
+    opacity: 0.7;
+    transition: 1s;
+    -webkit-transition: 1s;
+}
+
+#top-up {
+background:none;
+font-size: 3em;
+cursor: pointer;
+position: fixed;
+z-index: 99999;
+color: green;
+bottom: 10px;
+right: 25px;
+display: none;
+}
