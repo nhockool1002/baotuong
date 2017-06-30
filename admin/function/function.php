@@ -203,3 +203,76 @@ $(document).ready(function() { // Vì js này nằm trên đoạn html, nên ph�
       });
     });
 </script>
+
+<!-- AJAX EDIT PRODUCT -->
+<script type="text/javascript">
+    $(document).ready(function(){
+      $("#eformaddproduct").submit(function(){
+        $("#eerror").css("font-weight","bold");
+        $("#eerror").css("text-align","center");
+        $("#eerror").css("color","red");
+        $("#eerror").css("font-size","15px");
+        // var lone = $("#pdimg")[0].files[0].name;
+        // var lone1 = $("#pdimg")[0].files[0].type;
+        // var lone2 = $("#pdimg")[0].files[0].size;
+        // alert(lone2);
+        var namepd = $("#epdname").val();
+        if(namepd == ""){
+          $("#eerror").html("Lỗi - Không được để trống tên");
+          $("#epdname").focus();
+          return false;
+        }
+
+        if(!isNaN(namepd)){
+          $("#eerror").html("Lỗi - Tên sẩn phẩm không phải là số");
+          $("#epdname").focus();
+          return false;
+        }
+
+        var epddes = $("#epddes").val();
+        if(epddes == ""){
+          $("#eerror").html("Lỗi - Không điền mô tả sản phẩm");
+          $("#epddes").focus();
+          return false;
+        }
+
+        var epdprice = $("#epdprice").val();
+        if(epdprice == ""){
+          $("#eerror").html("Lỗi - Chưa nhập giá sản phẩm");
+          $("#epdprice").focus();
+          return false;
+        }
+
+        if(isNaN(epdprice)){
+          $("#eerror").html("Lỗi - Giá tiền nhập không phải là số");
+          $("#epdprice").focus();
+          return false;
+        }
+
+        var epdcat = $("#epdcat").val();
+        if(epdcat == 0){
+          $("#eerror").html("Lỗi - Chưa chọn danh mục sản phẩm");
+          $("#epdcat").focus();
+          return false;
+        }
+
+        if(("#inlineRadio1ss").prop('checked','true')){
+        var epdimg = $("#epdimg").val();
+        if(epdimg == ""){
+          $("#eerror").html("Lỗi - Chưa chọn hình đại diện");
+          $("#epdimg").focus();
+          return false;
+        }
+
+
+        var imgtype = $("#pdimg")[0].files[0].type;
+        if(imgtype != 'image/jpeg' && imgtype != 'image/png' && imgtype != 'image/gif' && imgtype != 'image/bmp'){
+          $("#error").html("Lỗi - Hình không đúng định dạng");
+          $("#pdimg").focus();
+          return false;
+        }
+      }
+        return true;
+      });
+    });
+</script>

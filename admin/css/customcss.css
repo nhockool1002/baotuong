@@ -4,6 +4,18 @@ body{
   font-family: 'Fira Sans Extra Condensed', sans-serif;
 }
 
+#showPR a {
+    text-decoration: none;
+    color: #1021ec;
+    font-weight: 600;
+    margin-left: 37px;
+}
+
+#showPR a:hover {
+    color: #ff2f00;
+    font-weight: 400;
+}
+
 #showPR .card-texts:hover {
     color: #ef1f1f;
 }
@@ -20,13 +32,6 @@ body{
     color: green;
 }
 
-#showPR .card.col-sm-3 {
-    background-color: #efefef;
-    margin-left: 10px;
-    border-radius: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
 
 #showPR h5.card-title {
     text-align: center;

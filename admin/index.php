@@ -42,12 +42,15 @@
           case 'addcat':
             include("inc/addcat.php");
             break;
-            case 'prolist':
-              include("inc/prolist.php");
-              break;
+          case 'prolist':
+            include("inc/prolist.php");
+            break;
           case 'addproduct':
             include("inc/addproduct.php");
             break;
+          case 'editproduct':
+              include("inc/editproduct.php");
+              break;
         default:
           include("inc/pagewrapper.php");
       }
