@@ -4,6 +4,59 @@ body{
   font-family: 'Fira Sans Extra Condensed', sans-serif;
 }
 
+#showPR .card-texts:hover {
+    color: #ef1f1f;
+}
+
+#showPR .card-texts {
+    font-weight: 500;
+    color: #2b28f5;
+    text-align: center;
+}
+
+#showPR .card-text {
+    margin-top: -6px;
+    text-align: center;
+    color: green;
+}
+
+#showPR .card.col-sm-3 {
+    background-color: #efefef;
+    margin-left: 10px;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#showPR h5.card-title {
+    text-align: center;
+    font-weight: 400;
+    color: red;
+}
+
+.dsdm-css {
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
+p.list-cat-pr {
+    margin-left: 33px;
+}
+
+.dsdm-css {
+    background-color: #efefef;
+    border-radius: 20px;
+}
+
+p.list-cat-pr {
+    font-weight: 500;
+    color: #009df9;
+}
+
+p.list-cat-pr:hover {
+    color: #e8480b;
+}
+
 p.cat-title {
     font-weight: 500;
     font-size: 19px;

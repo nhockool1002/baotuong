@@ -31,6 +31,7 @@ session_start();
             break;
           case 'login':
             include ROOT."/inc/login.php";
+            break;
           case 'contact':
             include ROOT."/inc/contact.php";
             break;

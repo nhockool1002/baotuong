@@ -143,7 +143,7 @@
                 <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="glyphicon glyphicon-send"></i> Quản lý Sản phẩm <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="demo1" class="collapse">
                     <li>
-                        <a href="#"><i class="glyphicon glyphicon-share"></i> Danh sách sản phẩm</a>
+                        <a href="index.php?page=prolist"><i class="glyphicon glyphicon-share"></i> Danh sách sản phẩm</a>
                     </li>
                     <li>
                         <a href="index.php?page=addproduct"><i class="glyphicon glyphicon-share"></i> Thêm sản phẩm mới</a>

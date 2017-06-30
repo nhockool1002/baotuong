@@ -13,6 +13,18 @@
       include("inc/header.php");
       include("function/function.php");
     ?>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $(".list-cat-pr").click(function(){
+          var id = $(this).data('id');
+          $.get("function/getallpdwithid.php",{id : id},function(data){
+            console.log(data);
+            $("#sanphamid").html("Sản Phẩm Theo Danh Mục");
+            $("#showPR").html(data);
+          })
+        });
+      });
+    </script>
   </head>
   <body>
 
@@ -30,9 +42,12 @@
           case 'addcat':
             include("inc/addcat.php");
             break;
-            case 'addproduct':
-              include("inc/addproduct.php");
+            case 'prolist':
+              include("inc/prolist.php");
               break;
+          case 'addproduct':
+            include("inc/addproduct.php");
+            break;
         default:
           include("inc/pagewrapper.php");
       }
