@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 29, 2017 lúc 01:14 CH
+-- Thời gian đã tạo: Th6 30, 2017 lúc 07:05 SA
 -- Phiên bản máy phục vụ: 10.1.21-MariaDB
 -- Phiên bản PHP: 5.6.30
 
@@ -53,12 +53,21 @@ INSERT INTO `category` (`catid`, `catname`, `catname_none`) VALUES
 CREATE TABLE `product` (
   `pd_id` int(100) NOT NULL,
   `pd_name` varchar(200) NOT NULL,
-  `pd_price` decimal(15,4) NOT NULL,
+  `pd_price` decimal(15,3) NOT NULL,
   `pd_des` text NOT NULL,
   `pd_img` varchar(200) NOT NULL,
-  `discount` tinyint(1) NOT NULL,
+  `special` tinyint(1) NOT NULL,
   `catid` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `product`
+--
+
+INSERT INTO `product` (`pd_id`, `pd_name`, `pd_price`, `pd_des`, `pd_img`, `special`, `catid`) VALUES
+(5, 'Khắn giấy 001', '10.000', 'Khắn giấy ướt 001 dùng cho trẻ em và các hoạt động hằng ngày .', '00000000000.jpg', 0, 2),
+(6, 'Khắn giấy ướt 002', '25.000', 'Khắn giấy ướt 002 dùng cho trẻ em và các hoạt động...', '00000000003.jpg', 0, 2),
+(7, 'Khắn giấy ướt 003', '50.000', 'Khắn giấy ướt 003 dùng cho trẻ em và các hoạt động...', '00000000002.jpg', 0, 2);
 
 -- --------------------------------------------------------
 
@@ -118,7 +127,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
-  MODIFY `pd_id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `pd_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT cho bảng `users`
 --

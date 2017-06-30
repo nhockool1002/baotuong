@@ -132,3 +132,74 @@ $(document).ready(function() { // Vì js này nằm trên đoạn html, nên ph�
       });
     });
 </script>
+
+
+<!-- Validate Add Product -->
+<script type="text/javascript">
+    $(document).ready(function(){
+      $("#formaddproduct").submit(function(){
+        $("#error").css("font-weight","bold");
+        $("#error").css("text-align","center");
+        $("#error").css("color","red");
+        $("#error").css("font-size","15px");
+        // var lone = $("#pdimg")[0].files[0].name;
+        // var lone1 = $("#pdimg")[0].files[0].type;
+        // var lone2 = $("#pdimg")[0].files[0].size;
+        // alert(lone2);
+        var namepd = $("#pdname").val();
+        if(namepd == ""){
+          $("#error").html("Lỗi - Không điền tên sản phẩm");
+          $("#pdname").focus();
+          return false;
+        }
+
+        if(!isNaN(namepd)){
+          $("#error").html("Lỗi - Tên sẩn phẩm không phải là số");
+          $("#namepd").focus();
+          return false;
+        }
+
+        var pddes = $("#pddes").val();
+        if(pddes == ""){
+          $("#error").html("Lỗi - Không điền mô tả sản phẩm");
+          $("#pddes").focus();
+          return false;
+        }
+
+        var pdprice = $("#pdprice").val();
+        if(pdprice == ""){
+          $("#error").html("Lỗi - Chưa nhập giá sản phẩm");
+          $("#pdprice").focus();
+          return false;
+        }
+
+        if(isNaN(pdprice)){
+          $("#error").html("Lỗi - Giá tiền nhập không phải là số");
+          $("#pdprice").focus();
+          return false;
+        }
+
+        var pdcat = $("#pdcat").val();
+        if(pdcat == 0){
+          $("#error").html("Lỗi - Chưa chọn danh mục sản phẩm");
+          $("#pdcat").focus();
+          return false;
+        }
+        var pdimg = $("#pdimg").val();
+        if(pdimg == ""){
+          $("#error").html("Lỗi - Chưa chọn hình đại diện");
+          $("#pdimg").focus();
+          return false;
+        }
+
+        var imgtype = $("#pdimg")[0].files[0].type;
+        if(imgtype != 'image/jpeg' && imgtype != 'image/png' && imgtype != 'image/gif' && imgtype != 'image/bmp'){
+          $("#error").html("Lỗi - Hình không đúng định dạng");
+          $("#pdimg").focus();
+          return false;
+        }
+
+        return true;
+      });
+    });
+</script>

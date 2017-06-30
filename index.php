@@ -48,3 +48,5 @@ session_start();
   </footer>
   <div id="top-up"><i class="fa fa-arrow-circle-o-up"></i></div>
 </html>
+<?php
+ob_end_flush(); ?>
