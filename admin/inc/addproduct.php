@@ -90,7 +90,7 @@
             move_uploaded_file($_FILES['pdimg']['tmp_name'],$target);
 
             echo $target." <b><font color='green'> - Sản phẩm đã được thêm thành công</font></b>";
-            header( "Refresh:2; url=index.php?page=catlist");
+            header( "Refresh:2; url=index.php?page=prolist");
           }
         ?>
         <!-- /.row -->

@@ -9,8 +9,8 @@ define("HOST", "localhost");
 define("DB_NAME", "baotuong");
 define("DB_USER", "root");
 define("DB_PASS", "");
-define("ROOT", "D:/xampp/htdocs/baotuong");
-define("ADROOT", "D:/xampp/htdocs/baotuong/admin");
+define("ROOT", "D:/Dev/Software/xampp/htdocs/baotuong");
+define("ADROOT", "D:/Dev/Software/xampp/htdocs/baotuong/admin");
 define("BASE_URL", "http://".$_SERVER['SERVER_NAME']);
 $sitename ="Bảo Tường Company - Admin Control Panel";
  ?>

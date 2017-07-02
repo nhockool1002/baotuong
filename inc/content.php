@@ -14,47 +14,39 @@
           <div class="col-sm-12">
             <div class="card-deck-wrapper">
               <div class="card-deck text-sm-center">
-                <div class="card">
-                  <img class="card-img-top" src="img/product/loa.jpg" width="100%" height="200px" alt="Loa Mini">
+                <?php
+                  if(isset($_GET['catid'])){
+                    $id = $_GET['catid'];
+                    $sql="SELECT * FROM product WHERE catid = '$id'";
+                  }
+                  else{
+                    $sql="SELECT * FROM product";
+                  }
+
+                  $obj=new Db();
+                  $rows = $obj->select($sql);
+                  foreach ($rows as $row) {
+                ?>
+                <div class="card col-sm-4 spcontent">
+                  <img class="card-img-top" src="upload/<?php echo $row['catid'] ?>/<?php echo $row['pd_img'] ?>" width="250px" height="200px"alt="><?php  echo $row['pd_name']; ?>">
                   <div class="card-block">
-                    <h5 class="card-title name-pd">Loa Mini</h4>
+                    <h5 class="card-title name-pd"><?php  echo $row['pd_name']; ?></h4>
                     <div class="card-subtitle float-sm-left price-pd">
-                      <span class="price">Giá :</span><span class="price-pd-details">3.000.000 VND</span>
+                      <span class="price">Giá :</span><span class="price-pd-details"><?php  echo $row['pd_price']; ?> VND</span>
                     </div>
                     <div class="card-subtitle float-sm-right">
                       <span class="buy-now"><a href="#">MUA NGAY</a></span><a href="#"><img class="cart-icon" src="img/cart.png" width="35px"></a>
                     </div>
                   </div>
                 </div>
-                <div class="card">
-                  <img class="card-img-top" src="img/product/loa.jpg" width="100%" height="200px" alt="Loa Mini">
-                  <div class="card-block">
-                    <h5 class="card-title name-pd">Led Mini</h4>
-                    <div class="card-subtitle float-sm-left price-pd">
-                      <span class="price">Giá :</span><span class="price-pd-details">1.200.000 VND</span>
-                    </div>
-                    <div class="card-subtitle float-sm-right">
-                      <span class="buy-now"><a href="#">MUA NGAY</a></span><a href="#"><img class="cart-icon" src="img/cart.png" width="35px"></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="card">
-                  <img class="card-img-top" src="img/product/loa.jpg" width="100%" height="200px" alt="Loa Mini">
-                  <div class="card-block">
-                    <h5 class="card-title name-pd">Vit Mini</h4>
-                    <div class="card-subtitle float-sm-left price-pd">
-                      <span class="price">Giá :</span><span class="price-pd-details">900.000 VND</span>
-                    </div>
-                    <div class="card-subtitle float-sm-right">
-                      <span class="buy-now"><a href="#">MUA NGAY</a></span><a href="#"><img class="cart-icon" src="img/cart.png" width="35px"></a>
-                    </div>
-                  </div>
-                </div>
+                <?php
+              }
+              ?>
               </div>
             </div>
           </div>
         </div>
-        
+
         <div class="row">
           <div class="col-sm-12 text-sm-center">
             <nav aria-label=Pagination">

@@ -46,11 +46,12 @@
                             foreach ($rows as $row) {
                             ?>
                             <div class="card col-sm-3">
-                              <img class="card-img-top" width="160px" src="../upload/<?php echo $row['catid']; ?>/<?php echo $row['pd_img']; ?>">
+                              <img class="card-img-top" width="160px" height="100px" src="../upload/<?php echo $row['catid']; ?>/<?php echo $row['pd_img']; ?>">
                               <div class="card-block">
                                 <h5 class="card-title"><?php echo $row['pd_name']; ?></h5>
                                 <div class='card-text'><?php echo $row['pd_price']; ?></div>
                                 <a href="index.php?page=editproduct&id=<?php echo $row['pd_id']; ?>">Sửa Sản Phẩm</a>
+                                <hr>
                               </div>
                             </div>
                             <?php

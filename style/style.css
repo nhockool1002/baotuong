@@ -1,5 +1,12 @@
 *{}
 
+.card.col-sm-4.spcontent {
+    padding-top: 15px;
+    margin-bottom: 10px;
+}
+
+.card.col-sm-4.spcontent {}
+
 i.fa.fa-arrow-circle-o-up {
     color: green;
 }

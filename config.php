@@ -9,7 +9,7 @@
   define("DB_NAME", "baotuong");
   define("DB_USER", "root");
   define("DB_PASS", "");
-  define("ROOT", "D:/xampp/htdocs/baotuong");
+  define("ROOT", "D:/Dev/Software/xampp/htdocs/baotuong");
   define("BASE_URL", "http://".$_SERVER['SERVER_NAME']);
 
   $sitename = "Bảo Tường Company";

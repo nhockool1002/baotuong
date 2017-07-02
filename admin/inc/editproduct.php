@@ -69,12 +69,12 @@
             <label class="radio-inline">
               <input type="radio" id="inlineRadio2ss" value="0" name="picagain" checked> Không
             </label>
-            <br>
+            <br><br>
 
             <label for="epdimg">Chọn hình đại diện sản phẩm</label>
             <input type="file" class="form-control-file" id="epdimg" name="epdimg">
             <small class="text-muted">File hình ảnh phải hợp lệ.</small>
-            <br>
+            <br><br>
 
             <label>Sản phẩm nổi bật   </label>
             <label class="radio-inline">

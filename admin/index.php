@@ -5,6 +5,7 @@
   include ADROOT."/function/func.php";
   spl_autoload_register("loadClass");
   $obj = new Db();
+  if(isset($_SESSION['user']) && $_SESSION['user']== 'admin'){
 ?>
 <!DOCTYPE html>
 <html>
@@ -59,4 +60,14 @@
   </body>
 </html>
 <?php
+}
+else {
+  include("inc/header.php");
+  include("function/function.php");
+?>
+  <center><img src="../img/logo-large.png" width="300px">  </center><br>
+<div class="alert alert-danger text-sm-center" role="alert">
+  <center><strong>Chú ý!</strong> trang này dành cho admin, vui lòng <a href="../index.php?page=login" class="alert-link"> đăng nhập </a> để sử dụng toàn bộ chức năng.</center>
+</div>
+<?php }
 ob_end_flush(); ?>
