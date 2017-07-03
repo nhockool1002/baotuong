@@ -4,6 +4,14 @@ body{
   font-family: 'Fira Sans Extra Condensed', sans-serif;
 }
 
+.row.pagination {text-align: center;z-index: 999;float: right;}
+
+.row {}
+
+.user-mana div {
+    margin-left: 15px;
+}
+
 #showPR a {
     text-decoration: none;
     color: #1021ec;
@@ -56,6 +64,15 @@ p.list-cat-pr {
 p.list-cat-pr {
     font-weight: 500;
     color: #009df9;
+}
+
+.list-cat-pr a {
+    text-decoration: none;
+    color: #1869e2;
+}
+
+.list-cat-pr a:hover {
+    color: darkorange;
 }
 
 p.list-cat-pr:hover {

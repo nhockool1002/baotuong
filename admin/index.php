@@ -14,14 +14,26 @@
       include("inc/header.php");
       include("function/function.php");
     ?>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
       $(document).ready(function(){
         $(".list-cat-pr").click(function(){
           var id = $(this).data('id');
-          $.get("function/getallpdwithid.php",{id : id},function(data){
+          $.get("function/getallpdwithid.php",{id : id, num : num},function(data){
             console.log(data);
             $("#sanphamid").html("Sản Phẩm Theo Danh Mục");
             $("#showPR").html(data);
+          })
+        });
+      });
+    </script> -->
+    <script>
+      $(document).ready(function() {
+        $("#adminpanellogout").click(function(){
+          $.get("function/logout.php",function(){
+            console.log("LOGOUT!");
+            setTimeout(function(){
+                       window.location = 'index.php';
+                  }, 0);
           })
         });
       });

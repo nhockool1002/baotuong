@@ -102,19 +102,19 @@
                 }
               ?>
                 <b class="caret"></b></a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu user-mana">
                 <li>
-                    <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                    <div href="#"><i class="fa fa-fw fa-user"></i> Profile</div>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                    <div href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</div>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                    <div href="#"><i class="fa fa-fw fa-gear"></i> Settings</div>
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                    <div href="#" id="adminpanellogout"><i class="fa fa-fw fa-power-off"></i> Log Out</div>
                 </li>
             </ul>
         </li>

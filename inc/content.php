@@ -3,6 +3,13 @@
   <div class="row">
     <?php
       include ROOT."/inc/menu-left.php";
+      $limit = 9;
+      if(isset($_GET['tab']))
+      {
+        $cp = $_GET['tab'];
+      }
+      else $cp = 1;
+      $from = ($cp-1)*$limit;
     ?>
     <div class="col-sm-9">
       <nav class="navbar navbar-inverse bg-primary text-sm-center content">
@@ -17,10 +24,10 @@
                 <?php
                   if(isset($_GET['catid'])){
                     $id = $_GET['catid'];
-                    $sql="SELECT * FROM product WHERE catid = '$id'";
+                    $sql="SELECT * FROM product WHERE catid = '$id' LIMIT $from,$limit";
                   }
                   else{
-                    $sql="SELECT * FROM product";
+                    $sql="SELECT * FROM product LIMIT $from,$limit";
                   }
 
                   $obj=new Db();
@@ -47,25 +54,41 @@
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-sm-12 text-sm-center">
-            <nav aria-label=Pagination">
-              <ul class="pagination">
-                <li class="page-item disabled">
-                  <a class="page-link" href="#" tabindex="-1">Previous</a>
-                </li>
-                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                <li class="page-item">
-                  <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                  <a class="page-link" href="#">Next</a>
-                </li>
-              </ul>
-              </nav>
-          </div>
-        </div>
+<!-- PHÂN TRANG -->
+<?php
+if(isset($_GET['catid'])){
+  $catid = $_GET['catid'];
+  $gpd = new Db();
+  $getallPD = "SELECT * FROM product WHERE catid = '$catid'";
+  $gpd->select($getallPD);
+  $countgpd = $gpd->getRowCount();
+$config = array(
+    'current_page'  => isset($_GET['tab']) ? $_GET['tab'] : 1, // Trang hiện tại
+    'total_record'  => $countgpd, // Tổng số record
+    'limit'         => 9,// limit
+    'link_full'     => 'index.php?catid='.$catid.'&tab={tab}',// Link full có dạng như sau: domain/com/page/{page}
+    'link_first'    => 'index.php?catid='.$catid,// Link trang đầu tiên
+);
+}
+else{
+  $gpd = new Db();
+  $getallPD = "SELECT * FROM product";
+  $gpd->select($getallPD);
+  $countgpd = $gpd->getRowCount();
+  $config = array(
+      'current_page'  => isset($_GET['tab']) ? $_GET['tab'] : 1, // Trang hiện tại
+      'total_record'  => $countgpd, // Tổng số record
+      'limit'         => 9,// limit
+      'link_full'     => 'index.php?tab={tab}',// Link full có dạng như sau: domain/com/page/{page}
+      'link_first'    => 'index.php',// Link trang đầu tiên
+  );
+}
+$paging = new Pagination();
+
+$paging->init($config);
+
+echo $paging->html();
+?>
       </div>
     </div>
   </div>

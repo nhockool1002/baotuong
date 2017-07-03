@@ -27,7 +27,7 @@
                     $rows = $obj->select($sql);
                     foreach ($rows as $row) {
                     ?>
-                    <p class="list-cat-pr" data-id="<?php echo $row['catid']; ?>"><?php echo $row['catid']; ?> - <?php echo $row['catname']; ?></p>
+                    <p class="list-cat-pr" data-id="<?php echo $row['catid']; ?>"><a href="index.php?page=prolist&catid=<?php echo $row['catid']; ?>"><?php echo $row['catid']; ?> - <?php echo $row['catname']; ?></a></p>
                     <?php
                     }?>
                   </div>
@@ -40,9 +40,35 @@
                         <div class="card-deck-wrapper">
                           <div class="card-deck" id="showPR">
                             <?php
+                            if( isset($_GET["num"]) ){
+                                  $num = $_GET["num"];
+                                  settype($num, "int");
+                                }else{
+                                  $num = 1;
+                                }
+                            $perpage = 8;
+                            if(isset($_GET['catid'])){
+                              $catid = $_GET['catid'];
+                              $sql = "SELECT * FROM product WHERE catid ='$catid'";
+                            }
+                            else{
                             $sql = "SELECT * FROM product";
+                            }
                             $obj = new Db();
-                            $rows = $obj->select($sql);
+                            $obj->select($sql);
+                            $allrecord = $obj->getRowCount();
+                            $totalpage = ceil($allrecord/$perpage);
+                            $from = ($num-1)*$perpage;
+                            if($from<0) $from=0;
+                            if(isset($_GET['catid'])){
+                              $catid = $_GET['catid'];
+                              $sql1 = "SELECT * FROM product WHERE catid ='$catid' LIMIT $from,$perpage";
+                            }
+                            else {
+                              $sql1 = "SELECT * FROM product LIMIT $from,$perpage";
+                            }
+                            $obj1 = new Db();
+                            $rows = $obj1->select($sql1);
                             foreach ($rows as $row) {
                             ?>
                             <div class="card col-sm-3">
@@ -58,6 +84,53 @@
                             } ?>
                           </div>
                         </div>
+                      </div>
+                    </div>
+                    <?php
+                        if($num<1){
+                          $num = 1;
+                        }
+                    ?>
+                    <div class="row pagination">
+                      <div class="col-sm-12 sm-push-10">
+                          <nav>
+                            <ul class="pagination pagination-lg|sm">
+                              <li>
+                                <a href="index.php?page=prolist&num=<?php echo $num-1; ?>" aria-label="Previous">
+                                  <span aria-hidden="true">&laquo;</span>
+                                  <span class="sr-only">Previous</span>
+                                </a>
+                              </li>
+                              <?php
+                              if(isset($_GET['catid'])){
+                                $catid = $_GET['catid'];
+                                for ($i=1; $i <= $totalpage ; $i++) {
+                                  if($i == $num){
+                              ?>
+                              <li id="num" class="pagition-active" style="background-color:green;"><a href="index.php?page=prolist&num=<?php echo $i; ?>"><b><?php echo $i; ?></b></a></li>
+                              <?php } else { ?>
+                              <li><a href="index.php?page=prolist&catid=<?php echo $catid; ?>&num=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                              <?php } }
+
+                              }
+                              else{
+                                for ($i=1; $i <= $totalpage ; $i++) {
+                                  if($i == $num){
+                              ?>
+                              <li id="num" class="pagition-active" style="background-color:green;"><a href="index.php?page=prolist&num=<?php echo $i; ?>"><b><?php echo $i; ?></b></a></li>
+                              <?php } else { ?>
+                              <li><a href="index.php?page=prolist&num=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                              <?php } }
+                              }
+                                ?>
+                              <li>
+                                <a href="index.php?page=prolist&num=<?php echo $num+1; ?>" aria-label="Next">
+                                  <span aria-hidden="true">&raquo;</span>
+                                  <span class="sr-only">Next</span>
+                                </a>
+                              </li>
+                            </ul>
+                          </nav>
                       </div>
                     </div>
                 </div>
