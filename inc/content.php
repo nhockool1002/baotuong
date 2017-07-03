@@ -24,10 +24,10 @@
                 <?php
                   if(isset($_GET['catid'])){
                     $id = $_GET['catid'];
-                    $sql="SELECT * FROM product WHERE catid = '$id' LIMIT $from,$limit";
+                    $sql="SELECT * FROM product WHERE catid = '$id' ORDER BY pd_id DESC LIMIT $from,$limit";
                   }
                   else{
-                    $sql="SELECT * FROM product LIMIT $from,$limit";
+                    $sql="SELECT * FROM product ORDER BY pd_id DESC LIMIT $from,$limit";
                   }
 
                   $obj=new Db();
