@@ -4,6 +4,16 @@ body{
   font-family: 'Fira Sans Extra Condensed', sans-serif;
 }
 
+a.edit-dis {
+    text-decoration: none;
+    color: #0e00e4;
+    font-weight: 400;
+}
+
+a.edit-dis:hover {
+    color: orange;
+}
+
 .row.pagination {text-align: center;z-index: 999;float: right;}
 
 .row {}

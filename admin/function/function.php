@@ -53,6 +53,28 @@ $(document).ready(function() { // Vì js này nằm trên đoạn html, nên ph�
     });
 </script>
 
+<!-- DELETE DISCOUNT AJAX -->
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".discount-del").click(function(){
+      var id = $(this).data("id");
+      console.log(id);
+      var answer = confirm ("Bạn có chắc chắn muốn xóa khuyến mãi này không ?");
+      if (answer)
+      {
+        $.get("function/deldiscount.php",{id : id},function(data){
+            if (data==1) {
+              setTimeout(function(){
+                         window.location = 'index.php?page=discountlist';
+                    }, 0);
+            }
+            else alert("Không xóa được khuyến mãi !");
+        });
+      }
+    });
+  });
+</script>
+
 <!-- AJAX Delete Category -->
 <script type="text/javascript">
 $(document).ready(function() { // Vì js này nằm trên đoạn html, nên phải đợi ready rồi mới add event click vào
@@ -68,7 +90,7 @@ $(document).ready(function() { // Vì js này nằm trên đoạn html, nên ph�
                   }, 0);
           }
           else alert("Không xóa được danh mục !");
-      })
+      });
     }
   });
 })
@@ -132,8 +154,69 @@ $(document).ready(function() { // Vì js này nằm trên đoạn html, nên ph�
       });
     });
 </script>
+<!-- Checking Discount ID AJAX -->
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#id-discount").keyup(function(){
+      var code = $("#id-discount").val();
+      $.get("function/check-discount-code.php",{code:code}, function(data){
+        console.log(code);
+        console.log(data);
+        if(data == 1){
+          $("#trk-id").css("font-weight","bold");
+          $("#trk-id").css("text-align","left");
+          $("#trk-id").css("color","red");
+          $("#trk-id").css("font-size","12px");
+          $("#trk-id").css("border","red");
+          $("#trk-id").html("Discount Code này đã tồn tại vui lòng nhập mã khác");
+        }else {
+          $("#trk-id").css("font-weight","bold");
+          $("#trk-id").css("text-align","left");
+          $("#trk-id").css("color","green");
+          $("#trk-id").css("font-size","12px");
+          $("#trk-id").html("Bạn có thể dùng Discount Code này !");
+        }
+    });
+  });
+  });
+</script>
 
-
+<!-- Discount Checked Form AJAX -->
+<script>
+  $(document).ready(function() {
+    $("#formdiscount").submit(function(){
+      $("#error-discount").css("font-weight","bold");
+      $("#error-discount").css("text-align","center");
+      $("#error-discount").css("color","red");
+      $("#error-discount").css("font-size","15px");
+      var code = $("#id-discount").val();
+      var content = $("#ct-discount").val();
+      var sdiscount = $("#start-discount").val();
+      var ediscount = $("#end-discount").val();
+      if(code == ""){
+        $("#error-discount").html("Mã khuyến mãi không được để trống.");
+        $("#id-discount").focus();
+        return false;
+      }
+      if(content == ""){
+        $("#error-discount").html("Nội dung khuyến mãi không được để trống.");
+        $("#ct-discount").focus();
+        return false;
+      }
+      if(sdiscount == ""){
+        $("#error-discount").html("Ngày bắt đầu khuyến mãi chưa nhập.");
+        $("#start-discount").focus();
+        return false;
+      }
+      if(ediscount == ""){
+        $("#error-discount").html("Ngày kết thúc khuyến mãi chưa nhập.");
+        $("#end-discount").focus();
+        return false;
+      }
+      return true;
+    });
+  });
+</script>
 <!-- Validate Add Product -->
 <script type="text/javascript">
     $(document).ready(function(){

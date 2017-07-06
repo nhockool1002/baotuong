@@ -75,7 +75,8 @@
                               <img class="card-img-top" width="160px" height="100px" src="../upload/<?php echo $row['catid']; ?>/<?php echo $row['pd_img']; ?>">
                               <div class="card-block">
                                 <h5 class="card-title"><?php echo $row['pd_name']; ?></h5>
-                                <div class='card-text'><?php echo $row['pd_price']; ?></div>
+                                <center><h6><?php echo $row['pd_code']; ?></h6></center>
+                                <div class='card-text'><?php echo "<b>".number_format($row['pd_price'])."</b> VND"; ?></div>
                                 <a href="index.php?page=editproduct&id=<?php echo $row['pd_id']; ?>">Sửa Sản Phẩm</a>
                                 <hr>
                               </div>

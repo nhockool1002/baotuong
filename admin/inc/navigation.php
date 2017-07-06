@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="../index.html">Bảo Tường Company - Admin Control Panel</a>
+        <a class="navbar-brand" href="../index.php">Bảo Tường Company - Admin Control Panel</a>
     </div>
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">
@@ -150,6 +150,17 @@
                     </li>
                     <li>
                         <a href="#"><i class="glyphicon glyphicon-share"></i> Thông kê sản phẩm</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;" data-toggle="collapse" data-target="#demo8"><i class="glyphicon glyphicon-cloud"></i> Quản lý Khuyến mãi <i class="fa fa-fw fa-caret-down"></i></a>
+                <ul id="demo8" class="collapse">
+                    <li>
+                        <a href="index.php?page=discountlist"><i class="glyphicon glyphicon-share"></i> Danh sách khuyến mãi </a>
+                    </li>
+                    <li>
+                        <a href="index.php?page=adddiscount"><i class="glyphicon glyphicon-share"></i> Thêm khuyến mới</a>
                     </li>
                 </ul>
             </li>

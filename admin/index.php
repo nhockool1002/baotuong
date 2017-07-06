@@ -64,6 +64,15 @@
           case 'editproduct':
               include("inc/editproduct.php");
               break;
+          case 'adddiscount':
+              include("inc/adddiscount.php");
+              break;
+          case 'discountlist':
+              include("inc/discountlist.php");
+              break;
+          case 'editdiscount':
+              include("inc/editdiscount.php");
+              break;
         default:
           include("inc/pagewrapper.php");
       }

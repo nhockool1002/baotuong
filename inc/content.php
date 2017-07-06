@@ -37,9 +37,10 @@
                 <div class="card col-sm-4 spcontent">
                   <img class="card-img-top" src="upload/<?php echo $row['catid'] ?>/<?php echo $row['pd_img'] ?>" width="250px" height="200px"alt="><?php  echo $row['pd_name']; ?>">
                   <div class="card-block">
-                    <h5 class="card-title name-pd"><?php  echo $row['pd_name']; ?></h4>
+                    <h5 class="card-title name-pd"><?php  echo $row['pd_name']; ?><?php if($row['discount_id']) echo "<img src='img/discount.png' width='35px'>"; ?></h5>
+                    <h6><?php  echo $row['pd_code']; ?></h6>
                     <div class="card-subtitle float-sm-left price-pd">
-                      <span class="price">Giá :</span><span class="price-pd-details"><?php  echo $row['pd_price']; ?> VND</span>
+                      <span class="price">Giá :</span><span class="price-pd-details"><?php echo "<b>".number_format($row['pd_price'])."</b> VND"; ?> </span>
                     </div>
                     <div class="card-subtitle float-sm-right">
                       <span class="buy-now"><a href="#">MUA NGAY</a></span><a href="#"><img class="cart-icon" src="img/cart.png" width="35px"></a>
