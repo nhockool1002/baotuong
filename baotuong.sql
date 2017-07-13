@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 30, 2017 lúc 10:18 CH
+-- Thời gian đã tạo: Th7 06, 2017 lúc 10:55 SA
 -- Phiên bản máy phục vụ: 10.1.21-MariaDB
 -- Phiên bản PHP: 5.6.30
 
@@ -47,16 +47,41 @@ INSERT INTO `category` (`catid`, `catname`, `catname_none`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `discount`
+--
+
+CREATE TABLE `discount` (
+  `discount_id` int(10) NOT NULL,
+  `discount_code` varchar(100) NOT NULL,
+  `discount_content` text NOT NULL,
+  `discount_start` varchar(255) NOT NULL,
+  `discount_end` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `discount`
+--
+
+INSERT INTO `discount` (`discount_id`, `discount_code`, `discount_content`, `discount_start`, `discount_end`) VALUES
+(3, 'VP141251DH', '- Khách hàng mua 01 thùng khuyến mãi 01 lốc cùng loại.<br>\r\n- Khách hàng mua 02 thùng khuyến mãi 04 lốc cùng loại.', '01-07-2017', '30-07-2017');
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `product`
 --
 
 CREATE TABLE `product` (
   `pd_id` int(100) NOT NULL,
+  `pd_code` varchar(100) NOT NULL,
   `pd_name` varchar(200) NOT NULL,
-  `pd_price` decimal(15,3) NOT NULL,
+  `pd_price` int(50) NOT NULL,
   `pd_des` text NOT NULL,
   `pd_img` varchar(200) NOT NULL,
   `special` tinyint(1) NOT NULL,
+  `discount_id` int(10) DEFAULT NULL,
+  `dvt` int(100) NOT NULL,
+  `note` text,
   `catid` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -64,13 +89,30 @@ CREATE TABLE `product` (
 -- Đang đổ dữ liệu cho bảng `product`
 --
 
-INSERT INTO `product` (`pd_id`, `pd_name`, `pd_price`, `pd_des`, `pd_img`, `special`, `catid`) VALUES
-(5, 'Khắn giấy 001', '10.000', 'Khắn giấy ướt 001 dùng cho trẻ em và các hoạt động hằng ngày .', '00000000000.jpg', 0, 2),
-(6, 'Khắn giấy ướt 002', '25.000', 'Khắn giấy ướt 002 dùng cho trẻ em và các hoạt động...', '00000000001.jpg', 0, 2),
-(7, 'Khắn giấy ướt 003', '50.000', 'Khắn giấy ướt 003 dùng cho trẻ em và các hoạt động...', '00000000002.jpg', 0, 2),
-(8, 'Bông tẩy trang Cotton Pads', '120.000', 'Bông tẩy trang Cotton Pads - Thương hiệu Teamma \"Your Skin - We Care\"', '00000000003.jpg', 0, 2),
-(9, 'Mặt nạ giấy 001', '40.000', 'Mặt nạ giấy 001 - Thương hiệu Teamma \"Your Skin - We Care\"', '00000000004.jpg', 0, 2),
-(10, 'Loa BlueTooth 3.0 SMKS', '160.000', 'Loa BlueTooth 3.0 SMKS', '00000000005.jpg', 0, 3);
+INSERT INTO `product` (`pd_id`, `pd_code`, `pd_name`, `pd_price`, `pd_des`, `pd_img`, `special`, `discount_id`, `dvt`, `note`, `catid`) VALUES
+(27, 'P60', 'Đĩa nhám xếp', 6800, 'Đĩa nhám xếp - P60', '19478156_674850586037122_96027983_n.jpg', 0, 3, 1, '0', 1),
+(28, 'P80', 'Đĩa nhám xếp', 6800, 'Đĩa nhám xếp - P80', '19478156_674850586037122_96027983_n.jpg', 0, 3, 1, '0', 1),
+(29, 'P120', 'Đĩa nhám xếp', 6800, 'Đĩa nhám xếp - P120', '19478156_674850586037122_96027983_n.jpg', 0, 3, 1, '0', 1),
+(31, 'P240', 'Đĩa nhám xếp', 6800, 'Đĩa nhám xếp - P240', 'dsdad.jpg', 0, 3, 1, '0', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `unit`
+--
+
+CREATE TABLE `unit` (
+  `unit_id` int(100) NOT NULL,
+  `unit_name` varchar(255) NOT NULL,
+  `quantity` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `unit`
+--
+
+INSERT INTO `unit` (`unit_id`, `unit_name`, `quantity`) VALUES
+(1, 'Lốc', 10);
 
 -- --------------------------------------------------------
 
@@ -105,11 +147,25 @@ ALTER TABLE `category`
   ADD PRIMARY KEY (`catid`);
 
 --
+-- Chỉ mục cho bảng `discount`
+--
+ALTER TABLE `discount`
+  ADD PRIMARY KEY (`discount_id`);
+
+--
 -- Chỉ mục cho bảng `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`pd_id`),
-  ADD KEY `catid` (`catid`);
+  ADD KEY `catid` (`catid`),
+  ADD KEY `discount_id` (`discount_id`),
+  ADD KEY `dvt` (`dvt`);
+
+--
+-- Chỉ mục cho bảng `unit`
+--
+ALTER TABLE `unit`
+  ADD PRIMARY KEY (`unit_id`);
 
 --
 -- Chỉ mục cho bảng `users`
@@ -125,12 +181,22 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `category`
 --
 ALTER TABLE `category`
-  MODIFY `catid` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `catid` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+--
+-- AUTO_INCREMENT cho bảng `discount`
+--
+ALTER TABLE `discount`
+  MODIFY `discount_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
-  MODIFY `pd_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `pd_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+--
+-- AUTO_INCREMENT cho bảng `unit`
+--
+ALTER TABLE `unit`
+  MODIFY `unit_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT cho bảng `users`
 --
@@ -144,7 +210,9 @@ ALTER TABLE `users`
 -- Các ràng buộc cho bảng `product`
 --
 ALTER TABLE `product`
-  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`catid`) REFERENCES `category` (`catid`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`catid`) REFERENCES `category` (`catid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`discount_id`) REFERENCES `discount` (`discount_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `product_ibfk_3` FOREIGN KEY (`dvt`) REFERENCES `unit` (`unit_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

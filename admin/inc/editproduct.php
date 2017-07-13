@@ -3,6 +3,7 @@
   $sql1 = "SELECT * FROM product WHERE pd_id = '$id'";
   $obj1 = new Db();
   $row = $obj->select1($sql1);
+  $code = $row['pd_code'];
   $price = (int)$row['pd_price'];
   $catid = $row['catid'];
   $pic = $row['pd_img'];
@@ -38,7 +39,7 @@
             <br>
             <br>
             <label for="pdname">Mã sản phẩm </label>  <label class="label label-warning"> * Important</label>
-            <input type="text" class="form-control" id="pdcode" placeholder="Nhập mã sản phẩm" name="pdcode" value="<?php echo $row['pd_code']; ?>">
+            <input type="text" class="form-control" id="pdcode" placeholder="Nhập mã sản phẩm" name="pdcode" value="<?php echo $pd_code; ?>">
             <small class="text-muted">Mã sản phẩm dùng để quản lý sản phẩm</small>
             <br>
             <br>

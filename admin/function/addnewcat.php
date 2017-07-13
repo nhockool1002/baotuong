@@ -7,7 +7,7 @@
   $addcatname = $_GET['addcatname'];
   $addcatnoname = $_GET['addcatnoname'];
 
-  $sql = "SELECT * FROM category WHERE catname = catname_none = '$addcatnoname'";
+  $sql = "SELECT * FROM category WHERE catname = '$addcatnoname'";
   $obj->select($sql);
   $count = $obj->getRowCount();
 
